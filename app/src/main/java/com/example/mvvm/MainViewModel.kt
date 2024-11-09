@@ -2,10 +2,12 @@ package com.example.mvvm
 
 import androidx.databinding.ObservableField
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import com.example.mvvm.Data.SaveCounter
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class MainViewModel(private val saveCounter: SaveCounter) : ViewModel() {
+@HiltViewModel
+class MainViewModel @Inject constructor(private val saveCounter: SaveCounter): ViewModel() {
 
     val counter = ObservableField(0)
 
@@ -15,19 +17,11 @@ class MainViewModel(private val saveCounter: SaveCounter) : ViewModel() {
     }
 
     fun decreaseCounter() {
-        saveCounter.counter = saveCounter.counter - 1
+        saveCounter.counter -= 1
         sendValue()
     }
 
     fun sendValue() {
         counter.set(saveCounter.counter)
     }
-
-    class Factory(private val saveCounter: SaveCounter) : ViewModelProvider.Factory {
-        override fun <T : ViewModel> create(modelClass: Class<T>): T {
-            return MainViewModel(saveCounter) as T
-        }
-    }
 }
-
-
