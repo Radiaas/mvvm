@@ -17,7 +17,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@{`` + viewModel.counter}"
-            android:textSize="54dp"
+            android:textSize="54sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -29,7 +29,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="24dp"
             android:onClick="@{() -> viewModel.decreaseCounter()}"
-            android:text="-"
+            android:text="@string/minus_ic"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
@@ -38,7 +38,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="24dp"
             android:onClick="@{() -> viewModel.increaseCounter()}"
-            android:text="+"
+            android:text="@string/plus_ic"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
